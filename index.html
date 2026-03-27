@@ -82,10 +82,12 @@ h1.hh{font-family:'Syne',sans-serif;font-size:clamp(42px,7vw,90px);font-weight:8
 .bp:hover{background:var(--sf2);transform:translateY(-2px)}
 .bg2{display:inline-flex;align-items:center;gap:8px;background:rgba(37,211,102,0.1);color:var(--wa);padding:15px 28px;font-size:15px;font-weight:700;border:1px solid rgba(37,211,102,0.25);border-radius:3px;text-decoration:none;transition:all 0.2s;cursor:pointer}
 .bg2:hover{background:rgba(37,211,102,0.18)}
-.sr{display:flex;gap:48px;margin-top:40px;padding-top:40px;border-top:1px solid var(--bd2);flex-wrap:wrap}
-.sn{font-family:'Syne',sans-serif;font-size:42px;font-weight:800;color:#fff;letter-spacing:-2px}
+.sr{display:grid;grid-template-columns:repeat(4,1fr);margin-top:48px;border:1px solid rgba(255,255,255,0.08);border-radius:6px;background:rgba(255,255,255,0.02);padding:0}
+.sr > div{padding:28px 32px;border-right:1px solid rgba(255,255,255,0.08);display:flex;flex-direction:column;justify-content:center}
+.sr > div:last-child{border-right:none}
+.sn{font-family:'Syne',sans-serif;font-size:38px;font-weight:800;color:#fff;letter-spacing:-1.5px;line-height:1;margin-bottom:8px}
 .sn span{color:var(--sf)}
-.sl{font-size:11px;color:#A0A0A0;margin-top:4px;text-transform:uppercase;letter-spacing:0.1em}
+.sl{font-size:11px;color:#A0A0A0;text-transform:uppercase;letter-spacing:0.12em;font-weight:600}
 
 /* ── SCARCITY BANNER ── */
 .scarcity{position:relative;z-index:1;background:rgba(255,107,0,0.06);border-top:1px solid rgba(255,107,0,0.12);border-bottom:1px solid rgba(255,107,0,0.12);padding:14px 64px;display:flex;align-items:center;justify-content:center;gap:16px}
@@ -342,8 +344,11 @@ hr.div{border:none;border-top:1px solid #111;max-width:1440px;margin:0 auto}
   .ham{display:flex}
   .hero{padding:100px 24px 40px}
   h1.hh{letter-spacing:-1.5px}
-  .sr{gap:24px;margin-top:32px;padding-top:32px}
-  .sn{font-size:32px}
+  .sr{grid-template-columns:repeat(2,1fr);margin-top:32px}
+  .sr > div{border-bottom:1px solid rgba(255,255,255,0.08);padding:24px}
+  .sr > div:nth-child(even){border-right:none}
+  .sr > div:nth-last-child(-n+2){border-bottom:none}
+  .sn{font-size:34px;margin-bottom:4px}
   .scarcity{padding:14px 24px;text-align:center}
   .sc-text{font-size:10px}
   .mq{padding:18px 0}
@@ -378,6 +383,9 @@ hr.div{border:none;border-top:1px solid #111;max-width:1440px;margin:0 auto}
 }
 @media(max-width:480px){
   .sk-grid{grid-template-columns:1fr}
+  .sr{grid-template-columns:1fr}
+  .sr > div{border-right:none;border-bottom:1px solid rgba(255,255,255,0.08)}
+  .sr > div:last-child{border-bottom:none}
   .hsteps{grid-template-columns:1fr}
   .hstep{border-right:none}
   .in-bg-grid{grid-template-columns:1fr}
