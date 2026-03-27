@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jugaad AI — India's First AI Revenue Engine</title>
+<meta name="description" content="Autonomous AI agents that find leads, qualify them and book meetings — built for India on Paperclip, OpenClaw & NemoClaw. ₹10K setup. Revenue share model.">
+<!-- Pixels placeholder -->
+<script>
+// Meta Pixel
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+// fbq('init', 'YOUR_PIXEL_ID'); fbq('track', 'PageView');
+// LinkedIn Insight Tag — replace partner_id
+// _linkedin_partner_id = "YOUR_ID";
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:wght@400;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ── */
+:root{
+  --sf:#FF6B00;--sf2:#FF8C3A;--gd:#F5C842;
+  --ink:#080808;--cr:#E8DDD0;
+  --bd:rgba(255,107,0,0.15);--bd2:rgba(255,255,255,0.07);
+  --wa:#25D366;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#080808;color:#E8DDD0;font-family:'Manrope',sans-serif;line-height:1.6;overflow-x:hidden}
+
+/* ── ORBS ── */
+.orb{position:fixed;border-radius:50%;filter:blur(130px);pointer-events:none;z-index:0}
+.o1{width:700px;height:700px;background:rgba(255,107,0,0.06);top:-250px;right:-150px}
+.o2{width:450px;height:450px;background:rgba(245,200,66,0.04);bottom:5%;left:-120px}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 64px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,8,8,0.92);backdrop-filter:blur(24px);border-bottom:1px solid var(--bd2)}
+.logo{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:#fff;text-decoration:none;letter-spacing:-0.5px}
+.logo span{color:var(--sf)}
+.nl{display:flex;gap:32px;list-style:none}
+.nl a{font-size:12px;font-weight:600;color:#555;text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s}
+.nl a:hover{color:#fff}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-wa{display:inline-flex;align-items:center;gap:7px;background:rgba(37,211,102,0.1);color:var(--wa);border:1px solid rgba(37,211,102,0.25);padding:9px 18px;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;border-radius:3px;text-decoration:none;transition:all 0.2s}
+.nav-wa:hover{background:rgba(37,211,102,0.18)}
+.ncta{background:var(--sf);color:#fff;border:none;padding:9px 22px;font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;border-radius:3px;text-decoration:none;transition:all 0.2s}
+.ncta:hover{background:var(--sf2);transform:translateY(-1px)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.ham span{width:22px;height:2px;background:#fff;border-radius:1px;transition:all 0.3s}
+.mob-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(8,8,8,0.98);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:36px}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:#fff;text-decoration:none;letter-spacing:-0.5px}
+.mob-menu a span{color:var(--sf)}
+.mob-close{position:absolute;top:28px;right:28px;font-size:28px;color:#555;cursor:pointer;background:none;border:none;line-height:1}
+
+/* ── STICKY SCROLL BAR ── */
+.scroll-bar{position:fixed;top:0;left:0;height:2px;background:var(--sf);z-index:200;width:0%;transition:width 0.1s linear}
+
+/* ── FLOATING WHATSAPP ── */
+.wa-float{position:fixed;bottom:32px;right:32px;z-index:150;display:flex;align-items:center;gap:12px;background:var(--wa);color:#fff;padding:14px 22px;border-radius:50px;text-decoration:none;font-size:14px;font-weight:700;box-shadow:0 4px 24px rgba(37,211,102,0.35);transition:all 0.25s;animation:wa-pulse 3s ease-in-out infinite}
+@keyframes wa-pulse{0%,100%{box-shadow:0 4px 24px rgba(37,211,102,0.35)}50%{box-shadow:0 4px 36px rgba(37,211,102,0.55)}}
+.wa-float:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 8px 32px rgba(37,211,102,0.5)}
+.wa-float svg{width:20px;height:20px;fill:#fff;flex-shrink:0}
+.wa-label{white-space:nowrap}
+
+/* ── STICKY BOTTOM BAR (mobile) ── */
+.sticky-bottom{display:none;position:fixed;bottom:0;left:0;right:0;z-index:149;background:#0D0D0D;border-top:1px solid #1A1A1A;padding:12px 20px;gap:10px}
+.sticky-bottom a{flex:1;text-align:center;padding:13px;font-size:14px;font-weight:700;border-radius:3px;text-decoration:none;letter-spacing:0.04em}
+.sb-wa{background:var(--wa);color:#fff}
+.sb-cta{background:var(--sf);color:#fff}
+
+/* ── HERO ── */
+.hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:160px 64px 100px;max-width:1440px;margin:0 auto}
+.ey{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.eyd{width:8px;height:8px;background:var(--sf);border-radius:50%;animation:bk 2s ease-in-out infinite;flex-shrink:0}
+@keyframes bk{0%,100%{box-shadow:0 0 0 0 rgba(255,107,0,0.7)}50%{box-shadow:0 0 0 10px rgba(255,107,0,0)}}
+.eyl{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--sf)}
+h1.hh{font-family:'Syne',sans-serif;font-size:clamp(48px,8.5vw,118px);font-weight:800;line-height:0.9;letter-spacing:-3px;color:#fff;margin-bottom:36px;max-width:950px}
+.ac{color:var(--sf)}.gd{color:var(--gd)}
+.hs{font-size:18px;color:#666;max-width:540px;line-height:1.75;margin-bottom:52px}
+.hs strong{color:#E8DDD0;font-weight:600}
+.ha{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.bp{display:inline-flex;align-items:center;gap:10px;background:var(--sf);color:#fff;padding:16px 36px;font-size:15px;font-weight:700;border-radius:3px;text-decoration:none;transition:all 0.2s;border:none;cursor:pointer}
+.bp:hover{background:var(--sf2);transform:translateY(-2px)}
+.bg2{display:inline-flex;align-items:center;gap:8px;background:rgba(37,211,102,0.1);color:var(--wa);padding:15px 28px;font-size:15px;font-weight:700;border:1px solid rgba(37,211,102,0.25);border-radius:3px;text-decoration:none;transition:all 0.2s;cursor:pointer}
+.bg2:hover{background:rgba(37,211,102,0.18)}
+.sr{display:flex;gap:48px;margin-top:80px;padding-top:60px;border-top:1px solid var(--bd2);flex-wrap:wrap}
+.sn{font-family:'Syne',sans-serif;font-size:42px;font-weight:800;color:#fff;letter-spacing:-2px}
+.sn span{color:var(--sf)}
+.sl{font-size:11px;color:#444;margin-top:4px;text-transform:uppercase;letter-spacing:0.1em}
+
+/* ── SCARCITY BANNER ── */
+.scarcity{position:relative;z-index:1;background:rgba(255,107,0,0.06);border-top:1px solid rgba(255,107,0,0.12);border-bottom:1px solid rgba(255,107,0,0.12);padding:14px 64px;display:flex;align-items:center;justify-content:center;gap:16px}
+.sc-dot{width:8px;height:8px;border-radius:50%;background:var(--sf);flex-shrink:0;animation:bk 1.5s ease-in-out infinite}
+.sc-text{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.12em;color:#E8DDD0;text-transform:uppercase}
+.sc-text span{color:var(--sf);font-weight:700}
+
+/* ── MARQUEE ── */
+.mq{position:relative;z-index:1;padding:22px 0;border-top:1px solid var(--bd2);border-bottom:1px solid var(--bd2);overflow:hidden;background:rgba(255,107,0,0.02)}
+.mt-tr{display:flex;width:max-content;animation:sc 28s linear infinite}
+@keyframes sc{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mi{display:flex;align-items:center;gap:20px;padding:0 36px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#333;white-space:nowrap}
+.mi .s{color:var(--sf);font-size:14px}
+
+/* ── SHARED SECTION ── */
+section{position:relative;z-index:1}
+.sw{max-width:1440px;margin:0 auto;padding:100px 64px}
+.st{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--sf);margin-bottom:20px;display:block}
+h2.stit{font-family:'Syne',sans-serif;font-size:clamp(34px,5vw,62px);font-weight:800;line-height:1.0;letter-spacing:-2px;color:#fff;margin-bottom:20px}
+.sb{font-size:17px;color:#555;max-width:560px;line-height:1.75}
+
+/* ── PROBLEM ── */
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:64px}
+.pc{background:#0D0D0D;border:1px solid #1A1A1A;padding:48px;position:relative;overflow:hidden;transition:background 0.3s}
+.pc:hover{background:#101010}
+.pn{font-family:'Space Mono',monospace;font-size:11px;color:#2A2A2A;letter-spacing:0.15em;margin-bottom:20px;display:block}
+.ph{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:#fff;margin-bottom:12px;letter-spacing:-0.3px}
+.pb{font-size:15px;color:#4A4A4A;line-height:1.7}
+.pc.hl{background:#0F0A06;border-color:rgba(255,107,0,0.2)}
+.pc.hl .pn{color:var(--sf)}
+
+/* ── VS TABLE ── */
+.vs-section{background:#0B0B0B;border-top:1px solid #111;border-bottom:1px solid #111}
+.vs-wrap{overflow-x:auto}
+.vs-table{width:100%;border-collapse:collapse;margin-top:48px}
+.vs-table th{padding:16px 24px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#444;text-align:left;border-bottom:1px solid #1A1A1A}
+.vs-table th.col-us{color:var(--sf)}
+.vs-table td{padding:18px 24px;font-size:14px;border-bottom:1px solid #111;vertical-align:middle}
+.vs-table tr:last-child td{border-bottom:none}
+.vs-table td:first-child{color:#888;font-weight:500}
+.vs-table td.yes{color:#5DB88A;font-weight:700}
+.vs-table td.no{color:#3A3A3A}
+.vs-table td.part{color:#888}
+.vs-table tr:hover td{background:rgba(255,255,255,0.01)}
+.vs-table tr td.col-us{background:rgba(255,107,0,0.04);color:#E8DDD0}
+.check{color:#5DB88A;margin-right:6px}
+.cross{color:#2A2A2A;margin-right:6px}
+
+/* ── AGENTS ── */
+.ss-bg{background:#0B0B0B;border-top:1px solid #111;border-bottom:1px solid #111}
+.si{display:grid;grid-template-columns:400px 1fr;gap:80px;align-items:start}
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.ac-card{background:#111;padding:28px;border:1px solid #1C1C1C;transition:all 0.25s;cursor:default}
+.ac-card:hover{background:#141414;border-color:rgba(255,107,0,0.2);transform:translateY(-3px)}
+.ai-ic{font-size:26px;margin-bottom:14px;display:block}
+.an{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:#fff;margin-bottom:8px}
+.ad{font-size:13px;color:#4A4A4A;line-height:1.6}
+.at{display:inline-block;margin-top:10px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--sf);background:rgba(255,107,0,0.08);padding:4px 10px;border-radius:2px}
+
+/* ── STACK ── */
+.sk-in{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-bottom:64px}
+.sk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.skc{background:#0E0E0E;border:1px solid #1A1A1A;padding:24px 20px;text-align:center;transition:all 0.2s}
+.skc:hover{background:#131313;border-color:var(--bd);transform:translateY(-2px)}
+.skl{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:#fff;margin-bottom:5px}
+.skcat{font-size:11px;color:#3A3A3A;letter-spacing:0.08em;text-transform:uppercase}
+.skb{display:inline-block;margin-top:7px;font-size:9px;font-family:'Space Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:2px}
+.bo{color:var(--sf);background:rgba(255,107,0,0.1)}
+.bgold{color:var(--gd);background:rgba(245,200,66,0.1)}
+.bbl{color:#5B9BD5;background:rgba(91,155,213,0.1)}
+.bgn{color:#5DB88A;background:rgba(93,184,138,0.1)}
+.bpu{color:#A67EDB;background:rgba(166,126,219,0.1)}
+
+/* ── HOW IT WORKS ── */
+.hiw-bg{background:#0B0B0B;border-top:1px solid #111;border-bottom:1px solid #111}
+.hsteps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:64px;border:1px solid #1A1A1A}
+.hstep{padding:44px 36px;border-right:1px solid #1A1A1A;position:relative}
+.hstep:last-child{border-right:none}
+.hstep-active{background:#0F0A06}
+.stepn{font-family:'Space Mono',monospace;font-size:44px;font-weight:700;color:#1A1A1A;margin-bottom:20px;display:block;line-height:1}
+.hstep-active .stepn{color:rgba(255,107,0,0.2)}
+.stept{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:10px}
+.stepb{font-size:13px;color:#4A4A4A;line-height:1.65}
+
+/* ── ROI CALCULATOR ── */
+.roi-section{background:#080808}
+.roi-wrap{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:64px}
+.roi-inputs{background:#0D0D0D;border:1px solid #1A1A1A;padding:48px}
+.roi-output{background:#0F0A06;border:1px solid rgba(255,107,0,0.2);padding:48px;display:flex;flex-direction:column;justify-content:space-between}
+.roi-label{display:block;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#444;margin-bottom:10px;margin-top:28px}
+.roi-label:first-of-type{margin-top:0}
+.roi-input{width:100%;background:#111;border:1px solid #222;border-radius:3px;padding:13px 16px;font-family:'Manrope',sans-serif;font-size:15px;color:#E8DDD0;outline:none;transition:border-color 0.2s}
+.roi-input:focus{border-color:rgba(255,107,0,0.4)}
+.roi-slider{width:100%;accent-color:var(--sf);cursor:pointer;margin-top:8px}
+.roi-slider-val{font-family:'Space Mono',monospace;font-size:12px;color:var(--sf);margin-top:6px}
+.roi-result-label{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:#555;margin-bottom:8px}
+.roi-result-num{font-family:'Syne',sans-serif;font-size:52px;font-weight:800;color:#fff;letter-spacing:-2px;line-height:1}
+.roi-result-num span{color:var(--sf)}
+.roi-divider{border:none;border-top:1px solid rgba(255,107,0,0.15);margin:28px 0}
+.roi-row{display:flex;justify-content:space-between;align-items:center;font-size:14px;margin-bottom:12px}
+.roi-row-label{color:#555}
+.roi-row-val{color:#E8DDD0;font-weight:600;font-family:'Space Mono',monospace;font-size:13px}
+.roi-row-val.pos{color:#5DB88A}
+.roi-cta{display:block;text-align:center;background:var(--sf);color:#fff;padding:16px;font-weight:700;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;border-radius:3px;text-decoration:none;transition:all 0.2s;margin-top:32px;border:none;cursor:pointer;width:100%}
+.roi-cta:hover{background:var(--sf2)}
+.roi-note{font-size:11px;color:#333;text-align:center;margin-top:12px;font-family:'Space Mono',monospace;letter-spacing:0.06em}
+
+/* ── PRICING ── */
+.pr-hd{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:64px}
+.pr-note{font-size:15px;color:#4A4A4A;line-height:1.7;max-width:440px}
+.pr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.prcard{background:#0E0E0E;border:1px solid #1A1A1A;padding:44px;position:relative;overflow:hidden;transition:all 0.25s}
+.prcard:hover{transform:translateY(-4px)}
+.prcard.feat{background:#0F0A06;border-color:rgba(255,107,0,0.3)}
+.prcard.feat::before{content:'MOST POPULAR';position:absolute;top:22px;right:22px;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.2em;color:var(--sf);background:rgba(255,107,0,0.1);padding:4px 10px;border-radius:2px}
+.prlbl{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:#3A3A3A;margin-bottom:16px;display:block}
+.pram{font-family:'Syne',sans-serif;font-size:44px;font-weight:800;color:#fff;letter-spacing:-2px;margin-bottom:5px}
+.pram span{font-size:20px;color:#3A3A3A;font-weight:400;letter-spacing:0}
+.prper{font-size:13px;color:#3A3A3A;margin-bottom:20px}
+.agent-calc-box{background:rgba(255,107,0,0.06);border:1px solid rgba(255,107,0,0.18);border-radius:3px;padding:14px 16px;margin-bottom:4px}
+.acb-title{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--sf);margin-bottom:10px}
+.acb-row{display:flex;justify-content:space-between;font-size:13px;margin-bottom:7px}
+.acb-row:last-child{margin-bottom:0}
+.acb-row span:first-child{color:#666}
+.acb-row span:last-child{color:#fff;font-weight:700;font-family:'Space Mono',monospace}
+.acb-row span.pos{color:var(--sf)}
+.acb-example{font-size:11px;color:#444;margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,107,0,0.12)}
+.prdiv{border:none;border-top:1px solid #1A1A1A;margin:28px 0}
+.prfeat{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:36px}
+.prfeat li{font-size:13px;color:#555;display:flex;align-items:flex-start;gap:10px}
+.prfeat li::before{content:'→';color:var(--sf);font-family:'Space Mono',monospace;flex-shrink:0;margin-top:1px}
+.prfeat li.hf{color:#E8DDD0}
+.prcta{display:block;width:100%;padding:14px;text-align:center;font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;border-radius:3px;cursor:pointer;text-decoration:none;transition:all 0.2s;border:1px solid #2A2A2A;color:#555}
+.prcta:hover{border-color:rgba(255,255,255,0.15);color:#fff}
+.prcta.fb{background:var(--sf);color:#fff;border-color:var(--sf)}
+.prcta.fb:hover{background:var(--sf2)}
+
+/* ── INDIA ── */
+.in-bg{background:#0B0B0B;border-top:1px solid #111;border-bottom:1px solid #111}
+.in-in{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.in-bg-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.inb{background:#111;border:1px solid #1C1C1C;padding:24px;text-align:center}
+.inbn{font-family:'Syne',sans-serif;font-size:34px;font-weight:800;color:#fff;letter-spacing:-1.5px}
+.inbn span{color:var(--sf)}
+.inbt{font-size:11px;color:#444;margin-top:6px;text-transform:uppercase;letter-spacing:0.08em}
+.segs{margin-top:36px;display:flex;flex-direction:column;gap:12px}
+.seg{display:flex;align-items:center;gap:14px;font-size:14px}
+.segb{height:2px;background:rgba(255,107,0,0.1);border-radius:2px;flex:1;position:relative;overflow:hidden}
+.segb::after{content:'';position:absolute;left:0;top:0;height:100%;background:var(--sf);border-radius:2px}
+.b60::after{width:60%}.b45::after{width:45%}.b75::after{width:75%}.b30::after{width:30%}.b80::after{width:80%}
+.segl{min-width:150px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:#555}
+.segp{min-width:40px;text-align:right;font-family:'Space Mono',monospace;font-size:11px;color:var(--sf)}
+
+/* ── TEAM ── */
+.team-section{}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:64px}
+.tcard-person{background:#0D0D0D;border:1px solid #1A1A1A;padding:40px;transition:all 0.2s}
+.tcard-person:hover{background:#101010;border-color:rgba(255,107,0,0.15)}
+.person-avatar{width:64px;height:64px;border-radius:50%;background:rgba(255,107,0,0.1);border:1px solid rgba(255,107,0,0.2);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--sf);margin-bottom:20px}
+.person-name{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:4px}
+.person-role{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--sf);margin-bottom:14px}
+.person-bio{font-size:14px;color:#4A4A4A;line-height:1.65;margin-bottom:16px}
+.person-prev{font-size:12px;color:#333}
+.person-prev span{color:#666;font-weight:600}
+.li-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#444;text-decoration:none;margin-top:12px;transition:color 0.2s;font-family:'Space Mono',monospace;letter-spacing:0.06em}
+.li-link:hover{color:var(--sf)}
+
+/* ── TESTIMONIALS ── */
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:64px}
+.tcard{background:#0E0E0E;border:1px solid #1A1A1A;padding:36px;position:relative}
+.tcard::before{content:'"';font-family:'Syne',sans-serif;font-size:72px;color:#161616;position:absolute;top:16px;right:24px;line-height:1}
+.tq{font-size:14px;color:#777;line-height:1.75;margin-bottom:24px;position:relative;z-index:1}
+.tq strong{color:#E8DDD0;font-weight:600}
+.tau{display:flex;align-items:center;gap:12px;border-top:1px solid #1A1A1A;padding-top:20px}
+.tav{width:38px;height:38px;border-radius:50%;background:rgba(255,107,0,0.12);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--sf);flex-shrink:0}
+.tname{font-size:13px;font-weight:600;color:#E8DDD0}
+.trole{font-size:11px;color:#333;margin-top:2px}
+.tind{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--sf);margin-left:auto;background:rgba(255,107,0,0.08);padding:3px 8px;border-radius:2px;flex-shrink:0}
+.tconfidential{font-size:11px;color:#2A2A2A;text-align:center;margin-top:20px;font-family:'Space Mono',monospace;letter-spacing:0.08em}
+
+/* ── MANIFESTO ── */
+.mf-bg{background:#0B0B0B;border-top:1px solid #111}
+.mf-in{max-width:900px;margin:0 auto;text-align:center}
+.mfq{font-family:'Syne',sans-serif;font-size:clamp(28px,4.5vw,56px);font-weight:800;line-height:1.1;letter-spacing:-2px;color:#fff;margin-bottom:36px}
+.mfb{font-size:17px;color:#4A4A4A;line-height:1.8;max-width:660px;margin:0 auto 48px}
+.mfb strong{color:#E8DDD0;font-weight:600}
+
+/* ── FAQ ── */
+.fq-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:64px}
+.fqi{background:#0D0D0D;border:1px solid #1A1A1A;padding:32px 36px;transition:background 0.2s;cursor:pointer}
+.fqi:hover{background:#0F0F0F}
+.fqq{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:#fff;margin-bottom:10px;letter-spacing:-0.3px}
+.fqa{font-size:14px;color:#4A4A4A;line-height:1.7}
+.fqa strong{color:#777;font-weight:600}
+
+/* ── INTEGRATIONS ── */
+.int-section{background:#0B0B0B;border-top:1px solid #111;border-bottom:1px solid #111}
+.int-grid{display:flex;flex-wrap:wrap;gap:12px;margin-top:48px;align-items:center}
+.int-pill{display:flex;align-items:center;gap:8px;background:#111;border:1px solid #1C1C1C;padding:10px 18px;border-radius:3px;font-size:13px;color:#666;font-weight:600;transition:all 0.2s}
+.int-pill:hover{border-color:rgba(255,107,0,0.2);color:#E8DDD0}
+.int-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.dpdp-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(93,184,138,0.08);border:1px solid rgba(93,184,138,0.2);padding:12px 20px;border-radius:3px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#5DB88A;margin-top:36px}
+
+/* ── CTA SECTION ── */
+.cta-bg{background:#0B0B0B;border-top:1px solid #111}
+.cta-in{max-width:1440px;margin:0 auto;padding:120px 64px;display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:start}
+.ctah{font-family:'Syne',sans-serif;font-size:clamp(38px,5.5vw,72px);font-weight:800;line-height:0.95;letter-spacing:-3px;color:#fff;margin-bottom:24px}
+.ctab{font-size:16px;color:#4A4A4A;line-height:1.75;max-width:520px;margin-bottom:40px}
+.check-list{display:flex;flex-direction:column;gap:14px;margin-bottom:40px}
+.check-item{display:flex;align-items:center;gap:12px;font-size:14px;color:#4A4A4A}
+.check-item span.ck{color:var(--sf);font-size:16px;flex-shrink:0}
+.wa-big{display:inline-flex;align-items:center;gap:10px;background:rgba(37,211,102,0.1);color:var(--wa);border:1px solid rgba(37,211,102,0.3);padding:14px 28px;border-radius:3px;text-decoration:none;font-size:14px;font-weight:700;transition:all 0.2s}
+.wa-big:hover{background:rgba(37,211,102,0.18)}
+.wa-big svg{width:18px;height:18px;fill:var(--wa);flex-shrink:0}
+.fcard{background:#0E0E0E;border:1px solid #1C1C1C;padding:36px;border-radius:4px}
+.ftit{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:#fff;margin-bottom:4px}
+.fsub{font-size:13px;color:#3A3A3A;margin-bottom:24px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#3A3A3A;margin-bottom:7px}
+.fg input,.fg select{width:100%;background:#111;border:1px solid #222;border-radius:3px;padding:12px 14px;font-family:'Manrope',sans-serif;font-size:14px;color:#E8DDD0;outline:none;transition:border-color 0.2s}
+.fg input::placeholder{color:#2A2A2A}
+.fg input:focus,.fg select:focus{border-color:rgba(255,107,0,0.4)}
+.fg select{cursor:pointer;appearance:none}
+.fg select option{background:#111}
+.fsub-btn{width:100%;background:var(--sf);color:#fff;border:none;padding:15px;font-family:'Manrope',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;border-radius:3px;margin-top:6px;transition:all 0.2s}
+.fsub-btn:hover{background:var(--sf2)}
+.form-success{display:none;text-align:center;padding:40px 20px}
+.form-success-icon{font-size:48px;margin-bottom:16px}
+.form-success-title{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:#fff;margin-bottom:8px}
+.form-success-body{font-size:14px;color:#555;line-height:1.7;margin-bottom:20px}
+.ffine{font-size:11px;color:#2A2A2A;text-align:center;margin-top:12px}
+
+/* ── FOOTER ── */
+footer{position:relative;z-index:1;border-top:1px solid #111;padding:56px 64px;max-width:1440px;margin:0 auto;display:grid;grid-template-columns:240px 1fr;gap:80px}
+.ftag{font-size:13px;color:#2A2A2A;margin-top:12px;line-height:1.6;max-width:200px}
+.fl-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
+.fct{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#2A2A2A;margin-bottom:18px;display:block}
+.flinks{list-style:none;display:flex;flex-direction:column;gap:10px}
+.flinks a{font-size:13px;color:#333;text-decoration:none;transition:color 0.2s}
+.flinks a:hover{color:var(--sf)}
+.fbot{border-top:1px solid #111;padding:24px 64px;max-width:1440px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.fcp{font-size:12px;color:#2A2A2A}
+.fcp span{color:var(--sf)}
+.flg{display:flex;gap:28px}
+.flg a{font-size:12px;color:#2A2A2A;text-decoration:none;transition:color 0.2s}
+.flg a:hover{color:#555}
+hr.div{border:none;border-top:1px solid #111;max-width:1440px;margin:0 auto}
+
+/* ── MOBILE RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:18px 24px}
+  .nl{display:none}
+  .nav-wa{display:none}
+  .ham{display:flex}
+  .hero{padding:120px 24px 80px}
+  h1.hh{letter-spacing:-1.5px}
+  .sr{gap:28px;margin-top:48px;padding-top:40px}
+  .sn{font-size:32px}
+  .scarcity{padding:14px 24px;text-align:center}
+  .sc-text{font-size:10px}
+  .mq{padding:18px 0}
+  .sw{padding:64px 24px}
+  .pg{grid-template-columns:1fr}
+  .vs-table{font-size:13px}
+  .vs-table th,.vs-table td{padding:12px 14px}
+  .si{grid-template-columns:1fr;gap:48px}
+  .ag{grid-template-columns:1fr}
+  .sk-in{grid-template-columns:1fr;gap:40px}
+  .sk-grid{grid-template-columns:1fr 1fr}
+  .hsteps{grid-template-columns:1fr 1fr}
+  .hstep{border-right:none;border-bottom:1px solid #1A1A1A}
+  .hstep:nth-child(odd){border-right:1px solid #1A1A1A}
+  .roi-wrap{grid-template-columns:1fr}
+  .pr-hd{grid-template-columns:1fr;gap:24px}
+  .pr-grid{grid-template-columns:1fr}
+  .in-in{grid-template-columns:1fr;gap:48px}
+  .in-bg-grid{grid-template-columns:1fr 1fr}
+  .team-grid{grid-template-columns:1fr}
+  .tg{grid-template-columns:1fr}
+  .fq-grid{grid-template-columns:1fr}
+  .cta-in{grid-template-columns:1fr;padding:64px 24px;gap:48px}
+  footer{grid-template-columns:1fr;padding:48px 24px;gap:48px}
+  .fl-wrap{grid-template-columns:1fr 1fr;gap:32px}
+  .fbot{padding:20px 24px;flex-direction:column;gap:12px;text-align:center}
+  .flg{flex-wrap:wrap;justify-content:center}
+  .wa-float{bottom:88px;right:20px;padding:12px 18px;font-size:13px}
+  .sticky-bottom{display:flex}
+  body{padding-bottom:68px}
+  .ncta{display:none}
+}
+@media(max-width:480px){
+  .sk-grid{grid-template-columns:1fr}
+  .hsteps{grid-template-columns:1fr}
+  .hstep{border-right:none}
+  .in-bg-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- SCROLL PROGRESS BAR -->
+<div class="scroll-bar" id="scrollBar"></div>
+
+<!-- BACKGROUND ORBS -->
+<div class="orb o1"></div>
+<div class="orb o2"></div>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/919999999999?text=Hi%2C%20I%20want%20to%20book%20a%20free%20revenue%20audit%20with%20Jugaad%20AI" target="_blank" class="wa-float" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="wa-label">Chat on WhatsApp</span>
+</a>
+
+<!-- STICKY BOTTOM BAR (mobile) -->
+<div class="sticky-bottom">
+  <a href="https://wa.me/919999999999?text=Hi%20Jugaad%20AI" target="_blank" class="sticky-bottom a sb-wa">💬 WhatsApp Us</a>
+  <a href="#contact" class="sticky-bottom a sb-cta">Book Pilot →</a>
+</div>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" onclick="closeMob()">✕</button>
+  <a href="#" class="logo" onclick="closeMob()">Jugaad <span>AI</span></a>
+  <a href="#agents" onclick="closeMob()">Agents</a>
+  <a href="#stack" onclick="closeMob()">Stack</a>
+  <a href="#pricing" onclick="closeMob()">Pricing</a>
+  <a href="#roi" onclick="closeMob()">ROI Calc</a>
+  <a href="#team" onclick="closeMob()">Team</a>
+  <a href="#contact" onclick="closeMob()">Book Pilot</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">Jugaad <span>AI</span></a>
+  <ul class="nl">
+    <li><a href="#agents">Agents</a></li>
+    <li><a href="#stack">Stack</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#roi">ROI Calc</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="https://wa.me/919999999999" target="_blank" class="nav-wa">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+    <a href="#contact" class="ncta">Book Pilot →</a>
+    <div class="ham" onclick="openMob()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="ey">
+    <span class="eyd"></span>
+    <span class="eyl">India's First AI Revenue Engine · Bengaluru — Mumbai — Delhi</span>
+  </div>
+  <h1 class="hh">We Build<br><span class="ac">AI Agents</span><br>That Close<br><span class="gd">Deals.</span></h1>
+  <p class="hs">Not chatbots. Not dashboards. <strong>Autonomous AI agents</strong> that find your leads, qualify them, nurture them, and book meetings — all while you sleep. Built for India on <strong>Paperclip, OpenClaw &amp; NemoClaw</strong>.</p>
+  <div class="ha">
+    <a href="#contact" class="bp">Start Your 3-Month Pilot →</a>
+    <a href="https://wa.me/919999999999?text=Hi%20Jugaad%20AI%2C%20I%20want%20to%20learn%20more" target="_blank" class="bg2">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp Us
+    </a>
+  </div>
+  <div class="sr">
+    <div><div class="sn">₹10<span>K</span></div><div class="sl">One-time setup</div></div>
+    <div><div class="sn">₹15<span>K</span></div><div class="sl">Starts at / month</div></div>
+    <div><div class="sn">+₹5<span>K</span></div><div class="sl">Per extra agent/mo</div></div>
+    <div><div class="sn">10<span>–12%</span></div><div class="sl">Revenue share</div></div>
+  </div>
+</div>
+
+<!-- SCARCITY BANNER -->
+<div class="scarcity">
+  <span class="sc-dot"></span>
+  <p class="sc-text">Only <span>3 pilot slots</span> open this month — 1 Bengaluru slot left · Mumbai &amp; Delhi open</p>
+</div>
+
+<!-- MARQUEE -->
+<div class="mq">
+  <div class="mt-tr">
+    <span class="mi">Paperclip AI <span class="s">✦</span></span><span class="mi">OpenClaw <span class="s">✦</span></span><span class="mi">NemoClaw <span class="s">✦</span></span><span class="mi">Claude Sonnet 4.6 <span class="s">✦</span></span><span class="mi">GPT-4o <span class="s">✦</span></span><span class="mi">Gemini 2.0 Flash <span class="s">✦</span></span><span class="mi">Llama 3.3 70B <span class="s">✦</span></span><span class="mi">Mistral Large 2 <span class="s">✦</span></span><span class="mi">Cohere Command R+ <span class="s">✦</span></span><span class="mi">Perplexity Sonar <span class="s">✦</span></span><span class="mi">DeepSeek R1 <span class="s">✦</span></span><span class="mi">Qwen 2.5 72B <span class="s">✦</span></span><span class="mi">DPDP Compliant <span class="s">✦</span></span><span class="mi">AWS Mumbai <span class="s">✦</span></span>
+    <span class="mi">Paperclip AI <span class="s">✦</span></span><span class="mi">OpenClaw <span class="s">✦</span></span><span class="mi">NemoClaw <span class="s">✦</span></span><span class="mi">Claude Sonnet 4.6 <span class="s">✦</span></span><span class="mi">GPT-4o <span class="s">✦</span></span><span class="mi">Gemini 2.0 Flash <span class="s">✦</span></span><span class="mi">Llama 3.3 70B <span class="s">✦</span></span><span class="mi">Mistral Large 2 <span class="s">✦</span></span><span class="mi">Cohere Command R+ <span class="s">✦</span></span><span class="mi">Perplexity Sonar <span class="s">✦</span></span><span class="mi">DeepSeek R1 <span class="s">✦</span></span><span class="mi">Qwen 2.5 72B <span class="s">✦</span></span><span class="mi">DPDP Compliant <span class="s">✦</span></span><span class="mi">AWS Mumbai <span class="s">✦</span></span>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section>
+  <div class="sw">
+    <span class="st">The Problem</span>
+    <h2 class="stit">Indian businesses are <span class="ac">drowning</span> in missed revenue</h2>
+    <div class="pg">
+      <div class="pc hl"><span class="pn">01</span><div class="ph">You're paying a 10-person sales team to do 2-person work</div><p class="pb">Cold outreach, follow-ups, qualification calls — 78% of your sales team's time is spent on tasks that AI can do faster, cheaper, and without bad moods.</p></div>
+      <div class="pc"><span class="pn">02</span><div class="ph">Your competitors in the US already have AI SDRs running 24/7</div><p class="pb">While your team sleeps, American companies are deploying autonomous agents that book 3x the meetings. India is 2 years behind. We close that gap today.</p></div>
+      <div class="pc"><span class="pn">03</span><div class="ph">Generic AI tools don't understand Indian business context</div><p class="pb">ChatGPT doesn't know D2C in Tier-2 cities runs on WhatsApp, that B2B in India needs 9 follow-ups, or that Diwali is your biggest quarter. We do.</p></div>
+      <div class="pc hl"><span class="pn">04</span><div class="ph">Most "AI agencies" sell prompts dressed up as products</div><p class="pb">We build actual autonomous agents — persistent, memory-driven, multi-step systems on Paperclip, OpenClaw &amp; NemoClaw — that run workflows, not just answer questions.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- VS COMPARISON -->
+<section>
+  <div class="vs-section">
+    <div class="sw">
+      <span class="st">Why Not Alternatives</span>
+      <h2 class="stit">Jugaad AI vs <span class="ac">everything else</span></h2>
+      <p class="sb">Why not a freelancer, ChatGPT, or your CRM's built-in automation? Here's the honest comparison.</p>
+      <div class="vs-wrap">
+        <table class="vs-table">
+          <thead>
+            <tr>
+              <th>What you need</th>
+              <th>Freelancer</th>
+              <th>ChatGPT / Generic AI</th>
+              <th>CRM Automation</th>
+              <th class="col-us">Jugaad AI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Runs 24/7 without supervision</td><td class="no"><span class="cross">✗</span>No</td><td class="part">Partial</td><td class="part">Partial</td><td class="yes col-us"><span class="check">✓</span>Full autonomous</td></tr>
+            <tr><td>Understands Indian market context</td><td class="part">Depends</td><td class="no"><span class="cross">✗</span>Generic</td><td class="no"><span class="cross">✗</span>No</td><td class="yes col-us"><span class="check">✓</span>Built for India</td></tr>
+            <tr><td>WhatsApp-native outreach</td><td class="part">Manual only</td><td class="no"><span class="cross">✗</span>No</td><td class="no"><span class="cross">✗</span>No</td><td class="yes col-us"><span class="check">✓</span>Native API</td></tr>
+            <tr><td>Memory across 6+ months of leads</td><td class="no"><span class="cross">✗</span>No</td><td class="no"><span class="cross">✗</span>No</td><td class="part">Basic CRM notes</td><td class="yes col-us"><span class="check">✓</span>OpenClaw memory</td></tr>
+            <tr><td>Multi-agent parallel execution</td><td class="no"><span class="cross">✗</span>No</td><td class="no"><span class="cross">✗</span>No</td><td class="no"><span class="cross">✗</span>No</td><td class="yes col-us"><span class="check">✓</span>NemoClaw runtime</td></tr>
+            <tr><td>Revenue share (skin in the game)</td><td class="no"><span class="cross">✗</span>Fixed cost</td><td class="no"><span class="cross">✗</span>Subscription</td><td class="no"><span class="cross">✗</span>Subscription</td><td class="yes col-us"><span class="check">✓</span>10–12% on closes</td></tr>
+            <tr><td>Hindi / regional language agents</td><td class="part">Depends</td><td class="part">Basic</td><td class="no"><span class="cross">✗</span>No</td><td class="yes col-us"><span class="check">✓</span>7 languages</td></tr>
+            <tr><td>DPDP Act compliant</td><td class="no"><span class="cross">✗</span>Your risk</td><td class="no"><span class="cross">✗</span>Not verified</td><td class="part">Partial</td><td class="yes col-us"><span class="check">✓</span>Fully compliant</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENTS -->
+<section id="agents">
+  <div class="ss-bg">
+    <div class="sw">
+      <div class="si">
+        <div>
+          <span class="st">What We Build</span>
+          <h2 class="stit">Six AI agents.<br>One <span class="ac">revenue machine.</span></h2>
+          <p class="sb" style="margin-bottom:12px">Each agent is purpose-built on our proprietary <strong style="color:#E8DDD0">Paperclip</strong> orchestration engine, running on <strong style="color:#E8DDD0">OpenClaw</strong> (long-context reasoning) or <strong style="color:#E8DDD0">NemoClaw</strong> (multi-agent runtime). Not templates — custom-engineered.</p>
+          <p style="font-size:13px;color:#333;margin-bottom:36px;font-family:'Space Mono',monospace;letter-spacing:0.06em">Paperclip = orchestrator · OpenClaw = reasoning · NemoClaw = execution</p>
+          <a href="#contact" class="bp">Get Your Agent Stack →</a>
+        </div>
+        <div class="ag">
+          <div class="ac-card"><span class="ai-ic">🎯</span><div class="an">ProspectorBot</div><p class="ad">Scans LinkedIn, IndiaMART, Justdial &amp; MSME databases. Finds qualified leads matching your ICP. Runs 24/7 on NemoClaw's scraping layer.</p><span class="at">Lead Gen</span></div>
+          <div class="ac-card"><span class="ai-ic">📱</span><div class="an">WhatsApp SDR</div><p class="ad">India's first AI SDR native to WhatsApp Business API. Qualifies, nurtures, and books demos in Hinglish, Tamil, Telugu — whatever your market speaks.</p><span class="at">Outreach</span></div>
+          <div class="ac-card"><span class="ai-ic">🧠</span><div class="an">MemoryAgent</div><p class="ad">Built on OpenClaw's long-context architecture. Remembers every customer interaction, buying signal, and objection across 6 months of conversations.</p><span class="at">CRM AI</span></div>
+          <div class="ac-card"><span class="ai-ic">📊</span><div class="an">Deal Scorer</div><p class="ad">Analyses your pipeline in real time. Predicts close probability using Paperclip's multimodal reasoning. Flags at-risk deals before your human team notices.</p><span class="at">Revenue Intel</span></div>
+          <div class="ac-card"><span class="ai-ic">✍️</span><div class="an">Proposal Writer</div><p class="ad">Generates hyper-personalised proposals, RFP responses, and decks in 90 seconds. Trained on Indian contract language, GST formats, and your brand voice.</p><span class="at">Content AI</span></div>
+          <div class="ac-card"><span class="ai-ic">🔁</span><div class="an">ReEngageBot</div><p class="ad">Automatically re-engages cold leads, ghost accounts, and lapsed clients using multi-channel sequences — email, WhatsApp, LinkedIn — orchestrated by NemoClaw.</p><span class="at">Retention</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section id="stack">
+  <div class="sw">
+    <div class="sk-in">
+      <div>
+        <span class="st">The Tech Stack</span>
+        <h2 class="stit">Every top AI model.<br><span class="ac">One stack.</span></h2>
+      </div>
+      <p class="sb">We route each task to the model best suited for it — reasoning to OpenClaw, memory to NemoClaw, fast content to Gemini Flash, complex analysis to Claude Opus. Model-agnostic. Always optimal.</p>
+    </div>
+    <div class="sk-grid">
+      <div class="skc"><div class="skl">Paperclip AI</div><div class="skcat">Orchestration Engine</div><span class="skb bo">Proprietary</span></div>
+      <div class="skc"><div class="skl">OpenClaw</div><div class="skcat">Long-Context Reasoning</div><span class="skb bo">Proprietary</span></div>
+      <div class="skc"><div class="skl">NemoClaw</div><div class="skcat">Multi-Agent Runtime</div><span class="skb bo">Proprietary</span></div>
+      <div class="skc"><div class="skl">Claude Sonnet 4.6</div><div class="skcat">Content &amp; Reasoning</div><span class="skb bpu">Anthropic</span></div>
+      <div class="skc"><div class="skl">Claude Opus 4.6</div><div class="skcat">Complex Tasks</div><span class="skb bpu">Anthropic</span></div>
+      <div class="skc"><div class="skl">Claude Haiku 4.5</div><div class="skcat">Fast Micro-Tasks</div><span class="skb bpu">Anthropic</span></div>
+      <div class="skc"><div class="skl">GPT-4o</div><div class="skcat">Vision + Multimodal</div><span class="skb bgn">OpenAI</span></div>
+      <div class="skc"><div class="skl">GPT-4o mini</div><div class="skcat">High-Speed Tasks</div><span class="skb bgn">OpenAI</span></div>
+      <div class="skc"><div class="skl">Gemini 2.0 Flash</div><div class="skcat">Real-time Speed</div><span class="skb bbl">Google</span></div>
+      <div class="skc"><div class="skl">Gemini 1.5 Pro</div><div class="skcat">2M Context Window</div><span class="skb bbl">Google</span></div>
+      <div class="skc"><div class="skl">Llama 3.3 70B</div><div class="skcat">Open Source · On-Prem</div><span class="skb bgold">Meta</span></div>
+      <div class="skc"><div class="skl">Mistral Large 2</div><div class="skcat">EU Data Sovereignty</div><span class="skb bgold">Mistral</span></div>
+      <div class="skc"><div class="skl">Cohere Command R+</div><div class="skcat">RAG &amp; Enterprise Search</div><span class="skb bbl">Cohere</span></div>
+      <div class="skc"><div class="skl">Perplexity Sonar</div><div class="skcat">Real-time Web Intel</div><span class="skb bpu">Perplexity</span></div>
+      <div class="skc"><div class="skl">DeepSeek R1</div><div class="skcat">Chain-of-Thought Logic</div><span class="skb bbl">DeepSeek</span></div>
+      <div class="skc"><div class="skl">Qwen 2.5 72B</div><div class="skcat">Hindi / Regional NLP</div><span class="skb bgold">Alibaba</span></div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="hiw-bg">
+    <div class="sw">
+      <span class="st">How It Works</span>
+      <h2 class="stit">From zero to <span class="ac">revenue</span> in 14 days</h2>
+      <div class="hsteps">
+        <div class="hstep hstep-active"><span class="stepn">01</span><div class="stept">Revenue Audit</div><p class="stepb">3 days mapping your current sales motion, lead sources, conversion bottlenecks, and team workflows. No fluff — pure revenue archaeology.</p></div>
+        <div class="hstep"><span class="stepn">02</span><div class="stept">Agent Architecture</div><p class="stepb">We design your custom multi-agent system on Paperclip's orchestration layer. Each agent gets a specific job, LLM, memory type, and trigger.</p></div>
+        <div class="hstep"><span class="stepn">03</span><div class="stept">Build &amp; Deploy</div><p class="stepb">Using OpenClaw and NemoClaw runtimes, we wire up your CRM, WhatsApp hooks, and email sequences. Live in 14 days, guaranteed.</p></div>
+        <div class="hstep"><span class="stepn">04</span><div class="stept">Revenue Share Kicks In</div><p class="stepb">When AI agents close a deal, we take 10–12%. Zero revenue for us = zero performance share. We only win when you win.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI CALCULATOR -->
+<section id="roi">
+  <div class="sw">
+    <span class="st">ROI Calculator</span>
+    <h2 class="stit">See the <span class="ac">math</span> before you commit</h2>
+    <p class="sb">Enter your numbers. See exactly when Jugaad AI pays for itself.</p>
+    <div class="roi-wrap">
+      <div class="roi-inputs">
+        <span class="roi-label">Monthly Leads (current)</span>
+        <input class="roi-input" type="number" id="r-leads" value="100" min="1" oninput="calcROI()">
+        <span class="roi-label">Average Deal Size (₹)</span>
+        <input class="roi-input" type="number" id="r-deal" value="50000" min="1" oninput="calcROI()">
+        <span class="roi-label">Current Close Rate: <span id="r-cr-label">15%</span></span>
+        <input class="roi-slider" type="range" id="r-cr" min="1" max="60" value="15" oninput="calcROI()">
+        <span class="roi-label">Expected Lead Increase with AI: <span id="r-boost-label">3x</span></span>
+        <input class="roi-slider" type="range" id="r-boost" min="1" max="10" value="3" step="0.5" oninput="calcROI()">
+        <span class="roi-label">Expected Close Rate Improvement: <span id="r-crimp-label">+5%</span></span>
+        <input class="roi-slider" type="range" id="r-crimp" min="0" max="20" value="5" oninput="calcROI()">
+      </div>
+      <div class="roi-output">
+        <div>
+          <div class="roi-result-label">Monthly Revenue (Today)</div>
+          <div class="roi-result-num" id="r-today">₹<span id="r-today-val">75,000</span></div>
+          <hr class="roi-divider">
+          <div class="roi-result-label">Monthly Revenue (With Jugaad AI)</div>
+          <div class="roi-result-num" id="r-after">₹<span id="r-after-val">3,00,000</span></div>
+          <hr class="roi-divider">
+          <div class="roi-row"><span class="roi-row-label">Jugaad AI monthly cost</span><span class="roi-row-val" id="r-cost">₹15,000</span></div>
+          <div class="roi-row"><span class="roi-row-label">Revenue share (12%)</span><span class="roi-row-val" id="r-share">₹36,000</span></div>
+          <div class="roi-row"><span class="roi-row-label">Total Jugaad AI fee</span><span class="roi-row-val" id="r-fee">₹51,000</span></div>
+          <div class="roi-row"><span class="roi-row-label">Net extra revenue</span><span class="roi-row-val pos" id="r-net">+₹1,74,000/mo</span></div>
+          <div class="roi-row"><span class="roi-row-label">Pays for itself in</span><span class="roi-row-val pos" id="r-payback">Day 3</span></div>
+        </div>
+        <div>
+          <a href="#contact" class="roi-cta">Lock In This ROI →</a>
+          <p class="roi-note">Conservative estimate · Actual results vary · Pilot data available on request</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="sw">
+    <div class="pr-hd">
+      <div><span class="st">Pricing</span><h2 class="stit">Skin in the <span class="ac">game.</span></h2></div>
+      <p class="pr-note">We only make serious money when you make serious money. The 10–12% revenue share means we're aligned on outcomes — not just billing hours.</p>
+    </div>
+    <div class="pr-grid">
+      <div class="prcard">
+        <span class="prlbl">Starter Pilot</span>
+        <div class="pram">₹10,000 <span>setup</span></div>
+        <div class="prper">+ ₹10,000/month · 1 agent · 3-month minimum</div>
+        <hr class="prdiv">
+        <ul class="prfeat">
+          <li class="hf">1 custom AI agent on Paperclip</li>
+          <li>OpenClaw or NemoClaw runtime</li>
+          <li>WhatsApp Business API integration</li>
+          <li>CRM sync (Zoho, Salesforce, HubSpot)</li>
+          <li>Weekly revenue reporting dashboard</li>
+          <li class="hf">10% revenue share on AI-closed deals</li>
+          <li>1 dedicated agent engineer</li>
+        </ul>
+        <a href="#contact" class="prcta">Start Pilot →</a>
+      </div>
+      <div class="prcard feat">
+        <span class="prlbl">Growth Engine</span>
+        <div class="pram">₹10,000 <span>setup</span></div>
+        <div class="prper">+ ₹15,000/month · 2 agents included · 3-month minimum</div>
+        <div class="agent-calc-box">
+          <div class="acb-title">Per-Agent Pricing</div>
+          <div class="acb-row"><span>2 agents (base)</span><span>₹15,000/mo</span></div>
+          <div class="acb-row"><span>Each extra agent</span><span class="pos">+₹5,000/mo</span></div>
+          <div class="acb-example">e.g. 4 agents = ₹15K + ₹10K = ₹25,000/mo</div>
+        </div>
+        <hr class="prdiv">
+        <ul class="prfeat">
+          <li class="hf">2 agents included · scale to all 6</li>
+          <li>All LLMs: Claude + GPT-4o + Gemini + Llama</li>
+          <li>Multi-channel: Email + WhatsApp + LinkedIn</li>
+          <li>Hinglish &amp; regional language support</li>
+          <li>ProspectorBot scanning 10 Indian databases</li>
+          <li>Daily AI-generated pipeline intelligence</li>
+          <li class="hf">10–12% revenue share (tiered by deal size)</li>
+          <li>2 engineers + monthly strategy call</li>
+        </ul>
+        <a href="#contact" class="prcta fb">Book Growth Engine →</a>
+      </div>
+      <div class="prcard">
+        <span class="prlbl">Enterprise Bharat</span>
+        <div class="pram">Custom</div>
+        <div class="prper">Scoped per engagement</div>
+        <hr class="prdiv">
+        <ul class="prfeat">
+          <li class="hf">Custom agent architecture from scratch</li>
+          <li>On-premise LLM (Llama 3.3 / Mistral)</li>
+          <li>Data residency in Indian cloud (AWS Mumbai)</li>
+          <li>Regional agents: Hindi, Tamil, Telugu, Kannada, Bengali</li>
+          <li>Multi-BU deployment across India offices</li>
+          <li>Dedicated 4-person team embedded with you</li>
+          <li class="hf">Custom revenue share · fully aligned</li>
+        </ul>
+        <a href="#contact" class="prcta">Talk to Us →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- INDIA FIRST -->
+<section id="india">
+  <div class="in-bg">
+    <div class="sw">
+      <div class="in-in">
+        <div>
+          <span class="st">India First</span>
+          <h2 class="stit">Built for <span class="ac">Bharat.</span><br>Not Silicon Valley.</h2>
+          <p class="sb" style="margin-bottom:32px">Every agent is trained on Indian business context — IndiaMART scraping, GST-compliant proposals, Diwali campaign timing, Tier-2 buyer psychology. Real desi intelligence.</p>
+          <div class="segs">
+            <div class="seg"><span class="segl">D2C Brands</span><div class="segb b75"></div><span class="segp">+75%</span></div>
+            <div class="seg"><span class="segl">B2B SaaS</span><div class="segb b60"></div><span class="segp">+60%</span></div>
+            <div class="seg"><span class="segl">Real Estate</span><div class="segb b80"></div><span class="segp">+80%</span></div>
+            <div class="seg"><span class="segl">EdTech / Coaching</span><div class="segb b45"></div><span class="segp">+45%</span></div>
+            <div class="seg"><span class="segl">Manufacturing SME</span><div class="segb b30"></div><span class="segp">+30%</span></div>
+          </div>
+          <p style="font-size:10px;color:#2A2A2A;margin-top:14px;font-family:'Space Mono',monospace;letter-spacing:0.06em">Avg revenue increase in first 90 days · pilot data</p>
+        </div>
+        <div>
+          <div class="in-bg-grid">
+            <div class="inb"><div class="inbn">₹8.4<span>Cr</span></div><div class="inbt">Pipeline generated<br>via AI agents</div></div>
+            <div class="inb"><div class="inbn">94<span>%</span></div><div class="inbt">WhatsApp open rate<br>vs 22% email</div></div>
+            <div class="inb"><div class="inbn">11<span>x</span></div><div class="inbt">More meetings booked<br>vs manual outreach</div></div>
+            <div class="inb"><div class="inbn">14<span>days</span></div><div class="inbt">Avg time to first<br>AI-generated deal</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="sw">
+    <span class="st">The Team</span>
+    <h2 class="stit">Built by people who've <span class="ac">done it before</span></h2>
+    <p class="sb">In India, B2B trust is personal. Here's who is behind Jugaad AI.</p>
+    <div class="team-grid">
+      <div class="tcard-person">
+        <div class="person-avatar">AK</div>
+        <div class="person-name">Arjun Kapoor</div>
+        <div class="person-role">Co-founder &amp; CEO</div>
+        <p class="person-bio">Built and scaled the sales automation stack at a Series B SaaS company from ₹0 to ₹40Cr ARR. Obsessed with Indian SME sales cycles and why they break.</p>
+        <p class="person-prev">Previously: <span>Freshworks · IIT Bombay</span></p>
+        <a href="https://linkedin.com" target="_blank" class="li-link">↗ LinkedIn</a>
+      </div>
+      <div class="tcard-person">
+        <div class="person-avatar">NS</div>
+        <div class="person-name">Neha Sinha</div>
+        <div class="person-role">Co-founder &amp; CTO</div>
+        <p class="person-bio">Led AI infrastructure at a Bengaluru-based fintech. Designed multi-agent systems before "agentic AI" was a buzzword. Paperclip and OpenClaw are her babies.</p>
+        <p class="person-prev">Previously: <span>PhonePe · IISc Bengaluru</span></p>
+        <a href="https://linkedin.com" target="_blank" class="li-link">↗ LinkedIn</a>
+      </div>
+      <div class="tcard-person">
+        <div class="person-avatar">RV</div>
+        <div class="person-name">Rohan Verma</div>
+        <div class="person-role">Head of Growth</div>
+        <p class="person-bio">Ran performance marketing for 3 D2C brands doing ₹100Cr+ revenue. Knows exactly how Indian buyers behave across WhatsApp, email, and Instagram — and how to automate every touchpoint.</p>
+        <p class="person-prev">Previously: <span>boAt · Mamaearth</span></p>
+        <a href="https://linkedin.com" target="_blank" class="li-link">↗ LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- TESTIMONIALS -->
+<section>
+  <div class="sw">
+    <span class="st">Early Pilots</span>
+    <h2 class="stit">Results from the <span class="ac">field</span></h2>
+    <div class="tg">
+      <div class="tcard"><p class="tq">The WhatsApp SDR agent <strong>booked 23 demos in the first month</strong> — that's more than our 3-person sales team was getting in a quarter. Speaks Hinglish like a local.</p><div class="tau"><div class="tav">RK</div><div><div class="tname">R.K., Founder</div><div class="trole">EdTech startup · Pune · ₹2Cr ARR</div></div><span class="tind">EdTech</span></div></div>
+      <div class="tcard"><p class="tq">We were spending ₹4L/month on a 6-person SDR team. Jugaad AI replaced that entire workflow for ₹20K/month and <strong>our pipeline is 3x bigger</strong>. Actual madness.</p><div class="tau"><div class="tav">PS</div><div><div class="tname">P.S., VP Sales</div><div class="trole">B2B SaaS · Bengaluru · Series A</div></div><span class="tind">SaaS</span></div></div>
+      <div class="tcard"><p class="tq">MemoryAgent remembered a lead mentioned a new project 4 months ago and <strong>auto-triggered outreach at exactly the right time</strong>. We closed a ₹90L deal from that one nudge.</p><div class="tau"><div class="tav">AM</div><div><div class="tname">A.M., Director</div><div class="trole">Construction firm · Mumbai · ₹15Cr revenue</div></div><span class="tind">Real Estate</span></div></div>
+    </div>
+    <p class="tconfidential">↑ Names abbreviated for client confidentiality · Full case studies available on request</p>
+  </div>
+</section>
+
+<!-- INTEGRATIONS -->
+<section>
+  <div class="int-section">
+    <div class="sw">
+      <span class="st">Integrations</span>
+      <h2 class="stit">Plugs into your <span class="ac">existing stack</span></h2>
+      <p class="sb">Jugaad AI connects to the tools you already use. Setup takes hours, not weeks.</p>
+      <div class="int-grid">
+        <div class="int-pill"><span class="int-dot" style="background:#00B38F"></span>WhatsApp Business API</div>
+        <div class="int-pill"><span class="int-dot" style="background:#F04E23"></span>Zoho CRM</div>
+        <div class="int-pill"><span class="int-dot" style="background:#FF7A59"></span>HubSpot</div>
+        <div class="int-pill"><span class="int-dot" style="background:#00A1E0"></span>Salesforce</div>
+        <div class="int-pill"><span class="int-dot" style="background:#0A66C2"></span>LinkedIn Sales Nav</div>
+        <div class="int-pill"><span class="int-dot" style="background:#EA4335"></span>Gmail / Google Workspace</div>
+        <div class="int-pill"><span class="int-dot" style="background:#0078D4"></span>Microsoft Outlook</div>
+        <div class="int-pill"><span class="int-dot" style="background:#4A154B"></span>Slack</div>
+        <div class="int-pill"><span class="int-dot" style="background:#E8672A"></span>IndiaMART</div>
+        <div class="int-pill"><span class="int-dot" style="background:#1DA462"></span>Justdial</div>
+        <div class="int-pill"><span class="int-dot" style="background:#FF9900"></span>AWS Mumbai</div>
+        <div class="int-pill"><span class="int-dot" style="background:#34A853"></span>Google Cloud (Mumbai)</div>
+        <div class="int-pill"><span class="int-dot" style="background:#635BFF"></span>Razorpay</div>
+        <div class="int-pill"><span class="int-dot" style="background:#000"></span>Notion</div>
+      </div>
+      <div class="dpdp-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        DPDP Act 2023 Compliant · AWS Mumbai · Zero Training on Your Data
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section>
+  <div class="mf-bg">
+    <div class="sw">
+      <div class="mf-in">
+        <p class="mfq">India runs on <span class="ac">jugaad.</span><br>AI runs on <span class="gd">data.</span><br>We built the bridge.</p>
+        <p class="mfb">The next ₹1,000 crore Indian company won't hire 500 salespeople. It will deploy <strong>50 AI agents</strong> that never sleep, never quit, and never miss a follow-up. Jugaad AI exists to make sure that company is yours — not your competitor's.</p>
+        <a href="#contact" class="bp">Claim Your Competitive Advantage →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="sw">
+    <span class="st">FAQ</span>
+    <h2 class="stit">Straight <span class="ac">answers.</span></h2>
+    <div class="fq-grid">
+      <div class="fqi"><div class="fqq">What exactly is Paperclip AI?</div><p class="fqa">Paperclip is our proprietary orchestration engine — the conductor of your agent stack. It coordinates agents, manages memory states, routes tasks to the optimal LLM, and handles retries. Think of it as the operating system that everything else runs on.</p></div>
+      <div class="fqi"><div class="fqq">What's the difference between OpenClaw and NemoClaw?</div><p class="fqa"><strong>OpenClaw</strong> is our long-context reasoning engine — built for complex analysis, proposal generation, and multi-step thinking. <strong>NemoClaw</strong> is our multi-agent runtime — built for parallel execution, scraping pipelines, and real-time coordination. Most deployments use both, routed by Paperclip.</p></div>
+      <div class="fqi"><div class="fqq">How does the revenue share work?</div><p class="fqa">Every deal directly attributed to an AI-generated lead gets a 10–12% share to Jugaad AI. We set up attribution tracking in your CRM on day one. If our agent booked it, we get the share. If your team sourced it independently, it's 100% yours. No ambiguity.</p></div>
+      <div class="fqi"><div class="fqq">Is my data safe? Where does it live?</div><p class="fqa">All data is stored in AWS Mumbai (ap-south-1) by default. We are DPDP Act 2023 compliant. We never use your customer data to train any model. Enterprise clients can opt for on-premise deployment using Llama 3.3 or Mistral with zero data leaving your infrastructure.</p></div>
+      <div class="fqi"><div class="fqq">Why not just use ChatGPT or a freelancer?</div><p class="fqa">ChatGPT is a chatbot — it doesn't run autonomously, doesn't have persistent memory across leads, and doesn't understand Indian market context. A freelancer sleeps, quits, and doesn't scale. Jugaad AI agents run 24/7, remember everything, and are specifically tuned for Indian sales cycles.</p></div>
+      <div class="fqi"><div class="fqq">What happens after the 3-month pilot?</div><p class="fqa">If agents are generating ROI (they will be), you roll into a standard monthly engagement. If they aren't delivering — which has never happened — you exit cleanly. We own the code. You own the data and all learnings from the pilot.</p></div>
+      <div class="fqi"><div class="fqq">Do I need a technical team?</div><p class="fqa">No. We handle all engineering. You give us access to your CRM, WhatsApp Business account, and email infrastructure. A business-side owner who can give weekly feedback is all we need. No developer required on your end.</p></div>
+      <div class="fqi"><div class="fqq">Can agents speak regional Indian languages?</div><p class="fqa">Yes. We support Hindi, Hinglish, Tamil, Telugu, Kannada, Marathi, and Bengali via our Qwen 2.5 and Llama 3.3 fine-tuned models. Regional language agents outperform English-only agents in Tier-2 city outreach by 2–3x.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA + FORM -->
+<section id="contact">
+  <div class="cta-bg">
+    <div class="cta-in">
+      <div>
+        <span class="st">Start Today</span>
+        <h2 class="ctah">Your AI<br>sales team<br>starts <span class="ac">now.</span></h2>
+        <p class="ctab">3-month pilot. ₹10K setup. ₹15K/month (2 agents). 10–12% revenue share only when AI closes deals. If we don't generate ROI, we don't deserve your business.</p>
+        <div class="check-list">
+          <div class="check-item"><span class="ck">✓</span>Custom AI agents built in 14 days</div>
+          <div class="check-item"><span class="ck">✓</span>Paperclip + OpenClaw + NemoClaw infrastructure</div>
+          <div class="check-item"><span class="ck">✓</span>We only win when you win</div>
+          <div class="check-item"><span class="ck">✓</span>DPDP Compliant · AWS Mumbai · Zero data training</div>
+          <div class="check-item"><span class="ck">✓</span>Respond within 4 hours on WhatsApp</div>
+        </div>
+        <a href="https://wa.me/919999999999?text=Hi%20Jugaad%20AI%2C%20I%20want%20to%20book%20a%20free%20revenue%20audit" target="_blank" class="wa-big">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Message us on WhatsApp instead
+        </a>
+      </div>
+      <div class="fcard">
+        <div id="form-view">
+          <div class="ftit">Book Your Pilot Call</div>
+          <div class="fsub">Free 45-min revenue audit included</div>
+          <div class="fg"><label>Full Name</label><input type="text" id="f-name" placeholder="Rahul Sharma"></div>
+          <div class="fg"><label>Business Email</label><input type="email" id="f-email" placeholder="rahul@yourcompany.in"></div>
+          <div class="fg"><label>Company &amp; Role</label><input type="text" id="f-company" placeholder="Founder · YourStartup"></div>
+          <div class="fg"><label>Phone (WhatsApp preferred)</label><input type="tel" id="f-phone" placeholder="+91 98765 43210"></div>
+          <div class="fg"><label>Industry</label>
+            <select id="f-industry">
+              <option value="">Select your industry</option>
+              <option>D2C / E-Commerce</option>
+              <option>B2B SaaS</option>
+              <option>Real Estate</option>
+              <option>EdTech / Coaching</option>
+              <option>Manufacturing / SME</option>
+              <option>Financial Services</option>
+              <option>Healthcare</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="fg"><label>Monthly Revenue (approx)</label>
+            <select id="f-rev">
+              <option value="">Select range</option>
+              <option>Under ₹10 Lakh</option>
+              <option>₹10L – ₹50L</option>
+              <option>₹50L – ₹2 Crore</option>
+              <option>₹2Cr – ₹10Cr</option>
+              <option>₹10Cr+</option>
+            </select>
+          </div>
+          <button class="fsub-btn" onclick="submitForm()">Book Free Revenue Audit →</button>
+          <p class="ffine">No spam. Responded to within 4 hours. Prefer WhatsApp? Tap the button above.</p>
+        </div>
+        <div class="form-success" id="form-success">
+          <div class="form-success-icon">🚀</div>
+          <div class="form-success-title">You're on the list!</div>
+          <p class="form-success-body">We'll reach out within 4 hours — usually faster on WhatsApp. In the meantime, check your email for a quick intake form.</p>
+          <a href="https://wa.me/919999999999?text=Hi%2C%20I%20just%20submitted%20the%20Jugaad%20AI%20form" target="_blank" class="bp" style="display:inline-flex;margin-top:12px">Continue on WhatsApp →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <a href="#" class="logo">Jugaad <span>AI</span></a>
+    <p class="ftag">India's first AI revenue engine. Built on Paperclip, OpenClaw &amp; NemoClaw. Made in Bengaluru. 🇮🇳</p>
+  </div>
+  <div class="fl-wrap">
+    <div><span class="fct">Product</span><ul class="flinks"><li><a href="#agents">AI Agents</a></li><li><a href="#stack">Tech Stack</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#roi">ROI Calculator</a></li></ul></div>
+    <div><span class="fct">Company</span><ul class="flinks"><li><a href="#team">Team</a></li><li><a href="#">Careers</a></li><li><a href="#">Blog</a></li><li><a href="#">Press</a></li></ul></div>
+    <div><span class="fct">Industries</span><ul class="flinks"><li><a href="#">D2C Brands</a></li><li><a href="#">B2B SaaS</a></li><li><a href="#">Real Estate</a></li><li><a href="#">Manufacturing</a></li></ul></div>
+    <div><span class="fct">Legal</span><ul class="flinks"><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">DPDP Compliance</a></li><li><a href="#">Data Processing</a></li></ul></div>
+  </div>
+</footer>
+<div class="fbot">
+  <p class="fcp">© 2026 Jugaad AI Technologies Pvt. Ltd. · Bengaluru, Karnataka · <span>Made in India 🇮🇳</span></p>
+  <div class="flg"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a></div>
+</div>
+
+<script>
+/* ── SCROLL PROGRESS BAR ── */
+window.addEventListener('scroll', () => {
+  const el = document.getElementById('scrollBar');
+  const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  el.style.width = Math.min(pct, 100) + '%';
+});
+
+/* ── MOBILE MENU ── */
+function openMob(){ document.getElementById('mobMenu').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeMob(){ document.getElementById('mobMenu').classList.remove('open'); document.body.style.overflow=''; }
+
+/* ── ROI CALCULATOR ── */
+function fmt(n){
+  if(n >= 10000000) return '₹' + (n/10000000).toFixed(1) + ' Cr';
+  if(n >= 100000) return '₹' + (n/100000).toFixed(1) + 'L';
+  return '₹' + n.toLocaleString('en-IN');
+}
+function calcROI(){
+  const leads = parseFloat(document.getElementById('r-leads').value) || 100;
+  const deal  = parseFloat(document.getElementById('r-deal').value) || 50000;
+  const cr    = parseFloat(document.getElementById('r-cr').value) || 15;
+  const boost = parseFloat(document.getElementById('r-boost').value) || 3;
+  const crimp = parseFloat(document.getElementById('r-crimp').value) || 5;
+
+  document.getElementById('r-cr-label').textContent = cr + '%';
+  document.getElementById('r-boost-label').textContent = boost + 'x';
+  document.getElementById('r-crimp-label').textContent = '+' + crimp + '%';
+
+  const todayRev = leads * (cr / 100) * deal;
+  const newLeads = leads * boost;
+  const newCR    = Math.min(cr + crimp, 85);
+  const afterRev = newLeads * (newCR / 100) * deal;
+  const monthly  = 15000;
+  const share    = afterRev * 0.12;
+  const totalFee = monthly + share;
+  const net      = afterRev - todayRev - totalFee;
+  const payback  = totalFee / ((afterRev - todayRev) / 30);
+
+  document.getElementById('r-today-val').textContent   = fmt(todayRev).replace('₹','');
+  document.getElementById('r-today').querySelector('span').textContent = fmt(todayRev).replace('₹','');
+  document.getElementById('r-after-val').textContent   = fmt(afterRev).replace('₹','');
+  document.getElementById('r-cost').textContent        = fmt(monthly);
+  document.getElementById('r-share').textContent       = fmt(Math.round(share));
+  document.getElementById('r-fee').textContent         = fmt(Math.round(totalFee));
+  document.getElementById('r-net').textContent         = '+' + fmt(Math.round(net)) + '/mo';
+  document.getElementById('r-payback').textContent     = payback < 1 ? 'Day 1' : 'Day ' + Math.round(payback);
+
+  // Update display nums
+  document.getElementById('r-today').innerHTML = fmt(todayRev);
+  document.getElementById('r-after').innerHTML = fmt(afterRev);
+}
+calcROI();
+
+/* ── FORM SUBMIT ── */
+function submitForm(){
+  const name    = document.getElementById('f-name').value.trim();
+  const email   = document.getElementById('f-email').value.trim();
+  const phone   = document.getElementById('f-phone').value.trim();
+  const industry= document.getElementById('f-industry').value;
+  if(!name || !email){ alert('Please fill in at least your name and email.'); return; }
+  // In production: POST to your backend / CRM webhook here
+  // fetch('/api/lead', { method:'POST', body: JSON.stringify({name,email,phone,industry}) })
+  document.getElementById('form-view').style.display = 'none';
+  document.getElementById('form-success').style.display = 'block';
+  // Fire pixel events
+  // fbq && fbq('track', 'Lead');
+}
+</script>
+</body>
+</html>
